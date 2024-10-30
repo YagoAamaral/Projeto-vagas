@@ -1,0 +1,17 @@
+{
+  "name": "projeto-empregos",
+  "version": "1.0.0",
+  "main": "main.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "electron-require": "^0.3.0",
+    "electron-store": "^10.0.0"
+  }
+}
