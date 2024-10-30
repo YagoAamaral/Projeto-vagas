@@ -23,54 +23,54 @@
     </div>
 </div>
 <script>
-    // Função para exibir as vagas armazenadas no Local Storage
+   
     function mostrarVagas() {
-        const vagas = JSON.parse(localStorage.getItem('vagas')) || []; // Obtém as vagas do Local Storage
+        const vagas = JSON.parse(localStorage.getItem('vagas')) || []; 
         const resultadoDiv = document.getElementById('vaga3'); 
         resultadoDiv.innerHTML = ''; 
 
-        vagas.forEach((vaga, index) => { // Itera sobre cada vaga armazenada
-            resultadoDiv.innerHTML += `<p><strong>Nome da Vaga:</strong> ${vaga.nome}</p>`; // Exibe o nome da vaga
+        vagas.forEach((vaga, index) => { 
+            resultadoDiv.innerHTML += `<p><strong>Nome da Vaga:</strong> ${vaga.nome}</p>`; 
             resultadoDiv.innerHTML += `<p><strong>Descrição da Vaga:</strong> ${vaga.descricao}</p>`; // Exibe a descrição da vaga
-            // Adiciona um botão de excluir
+            
             resultadoDiv.innerHTML += `<button onclick="removerVaga(${index})">Excluir</button>`;
-            resultadoDiv.innerHTML += `<hr>`; // Linha separadora
+            resultadoDiv.innerHTML += `<hr>`; 
         });
     }
 
-    // Chama a função para exibir as vagas ao carregar a página
+   
     mostrarVagas();
 
     document.getElementById('vaga1').addEventListener('submit', function(event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
+        event.preventDefault(); 
 
-        const nomevaga = document.getElementById('nome1').value; // Captura o valor do campo de nome
-        const descri = document.getElementById('descricao').value; // Captura o valor do campo de descrição
+        const nomevaga = document.getElementById('nome1').value; 
+        const descri = document.getElementById('descricao').value; 
 
         // Armazena a nova vaga no Local Storage
-        const vagas = JSON.parse(localStorage.getItem('vagas')) || []; // Obtém as vagas existentes ou cria um array vazio
-        vagas.push({ nome: nomevaga, descricao: descri }); // Adiciona a nova vaga ao array
-        localStorage.setItem('vagas', JSON.stringify(vagas)); // Armazena o array atualizado no Local Storage
+        const vagas = JSON.parse(localStorage.getItem('vagas')) || []; 
+        vagas.push({ nome: nomevaga, descricao: descri }); 
+        localStorage.setItem('vagas', JSON.stringify(vagas)); 
 
-        // Limpa os campos após o envio
+       
         document.getElementById('vaga1').reset();
 
-        // Atualiza a exibição das vagas
+        
         mostrarVagas();
     });
 
-    // Função para remover uma vaga pelo índice
+    
     function removerVaga(index) {
         const vagas = JSON.parse(localStorage.getItem('vagas')) || []; // Obtém as vagas existentes
-        vagas.splice(index, 1); // Remove a vaga do array pelo índice
-        localStorage.setItem('vagas', JSON.stringify(vagas)); // Armazena o array atualizado no Local Storage
-        mostrarVagas(); // Atualiza a exibição das vagas
+        vagas.splice(index, 1); 
+        localStorage.setItem('vagas', JSON.stringify(vagas)); 
+        mostrarVagas(); 
     }
 
-    // Função para limpar todas as vagas
+    
     function limparTodasVagas() {
-        localStorage.removeItem('vagas'); // Remove o item 'vagas' do Local Storage
-        mostrarVagas(); // Atualiza a exibição das vagas
+        localStorage.removeItem('vagas'); 
+        mostrarVagas(); 
     }
 </script>
 </body>
